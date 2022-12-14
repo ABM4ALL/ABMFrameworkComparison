@@ -127,9 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-/data/output/CovidContagion.sqlite
-/data/output/PopulationInfection_S0R0.png
-/data/output/PopulationInfection_S1R0.png
+/data/output/*
 /.idea/.gitignore
 /.idea/CovidContagion.iml
 /.idea/misc.xml
