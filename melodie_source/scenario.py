@@ -1,5 +1,5 @@
 from Melodie import Scenario
-from source import data_info
+from melodie_source import data_info
 
 
 class CovidScenario(Scenario):

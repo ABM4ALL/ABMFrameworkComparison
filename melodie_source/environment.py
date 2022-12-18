@@ -1,7 +1,7 @@
 from Melodie import Environment
 from Melodie import AgentList
-from source.agent import CovidAgent
-from source.scenario import CovidScenario
+from melodie_source.agent import CovidAgent
+from melodie_source.scenario import CovidScenario
 
 
 class CovidEnvironment(Environment):

@@ -1,5 +1,5 @@
 from config import config
-from source.analyzer import CovidAnalyzer
+from melodie_source.analyzer import CovidAnalyzer
 
 if __name__ == "__main__":
 

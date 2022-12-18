@@ -1,8 +1,8 @@
 from Melodie import Simulator
 from config import config
-from source.data_loader import CovidDataLoader
-from source.model import CovidModel
-from source.scenario import CovidScenario
+from melodie_source.data_loader import CovidDataLoader
+from melodie_source.model import CovidModel
+from melodie_source.scenario import CovidScenario
 
 if __name__ == "__main__":
     simulator = Simulator(

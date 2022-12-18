@@ -3,10 +3,10 @@ from typing import TYPE_CHECKING, Dict, Any
 import numpy as np
 
 from Melodie import DataLoader
-from source import data_info
+from melodie_source import data_info
 
 if TYPE_CHECKING:
-    from source.scenario import CovidScenario
+    from melodie_source.scenario import CovidScenario
 
 
 class CovidDataLoader(DataLoader):
