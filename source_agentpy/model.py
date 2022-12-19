@@ -2,7 +2,7 @@ import agentpy as ap
 import numpy as np
 import pandas as pd
 
-from .agent import CovidAgent
+from source_agentpy.agent import CovidAgent
 
 
 class CovidModel(ap.Model):
