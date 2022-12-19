@@ -5,4 +5,5 @@
 # @File: run_mesa.py.py
 from agentpy_source.runner import run
 
-run()
+if __name__ == "__main__":
+    run()

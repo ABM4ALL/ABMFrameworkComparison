@@ -2,7 +2,8 @@
 # @Time: 2022/12/18 12:17
 # @Author: Zhanyi Hou
 # @Email: 1295752786@qq.com
-# @File: run_mesa.py.py
+# @File: run_mesa.py
 from mesa_source.runner import run
 
-run()
+if __name__ == "__main__":
+    run()
