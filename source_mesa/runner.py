@@ -1,16 +1,10 @@
-# -*- coding:utf-8 -*-
-# @Time: 2022/12/18 13:30
-# @Author: Zhanyi Hou
-# @Email: 1295752786@qq.com
-# @File: runner.py
 import os
 
+import matplotlib.pyplot as plt
 import pandas as pd
 
-from .config import DATA_FOLDER
-
-from .model import CovidModel
-import matplotlib.pyplot as plt
+from source_mesa.config import DATA_FOLDER
+from source_mesa.model import CovidModel
 
 scenarios_df = pd.read_excel(os.path.join(DATA_FOLDER, 'input', 'SimulatorScenarios.xlsx'))
 

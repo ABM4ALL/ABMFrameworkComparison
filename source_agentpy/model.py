@@ -1,8 +1,3 @@
-# -*- coding:utf-8 -*-
-# @Time: 2022/12/18 17:39
-# @Author: Zhanyi Hou
-# @Email: 1295752786@qq.com
-# @File: model.py
 import agentpy as ap
 import numpy as np
 import pandas as pd

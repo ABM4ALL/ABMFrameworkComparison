@@ -1,17 +1,11 @@
-# -*- coding:utf-8 -*-
-# @Time: 2022/12/18 18:18
-# @Author: Zhanyi Hou
-# @Email: 1295752786@qq.com
-# @File: runner.py
 import os.path
 
 import agentpy as ap
 import pandas as pd
 from matplotlib import pyplot as plt
 
-from .config import DATA_FOLDER
-
-from .model import CovidModel
+from source_agentpy.config import DATA_FOLDER
+from source_agentpy.model import CovidModel
 
 
 def run():

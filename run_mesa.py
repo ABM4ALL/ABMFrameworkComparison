@@ -3,6 +3,6 @@
 # @Author: Zhanyi Hou
 # @Email: 1295752786@qq.com
 # @File: run_mesa.py.py
-from mesa_source.runner import run
+from source_mesa.runner import run
 
 run()

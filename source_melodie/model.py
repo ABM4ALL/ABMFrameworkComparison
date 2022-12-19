@@ -1,11 +1,11 @@
 from typing import TYPE_CHECKING
 
 from Melodie import Model
-from melodie_source import data_info
-from melodie_source.agent import CovidAgent
-from melodie_source.data_collector import CovidDataCollector
-from melodie_source.environment import CovidEnvironment
-from melodie_source.scenario import CovidScenario
+from source_melodie import data_info
+from source_melodie.agent import CovidAgent
+from source_melodie.data_collector import CovidDataCollector
+from source_melodie.environment import CovidEnvironment
+from source_melodie.scenario import CovidScenario
 
 if TYPE_CHECKING:
     from Melodie import AgentList

@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING
 from Melodie import Agent
 
 if TYPE_CHECKING:
-    from melodie_source.scenario import CovidScenario
+    from source_melodie.scenario import CovidScenario
 
 
 class CovidAgent(Agent):

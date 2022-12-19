@@ -1,13 +1,8 @@
-# -*- coding:utf-8 -*-
-# @Time: 2022/12/18 10:13
-# @Author: Zhanyi Hou
-# @Email: 1295752786@qq.com
-# @File: model.py
 import mesa
 import numpy as np
 import pandas as pd
 
-from .agent import CovidAgent
+from source_mesa.agent import CovidAgent
 
 
 class CovidModel(mesa.Model):
