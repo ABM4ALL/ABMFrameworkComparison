@@ -1,18 +1,10 @@
-import os.path
+import os
 
-import agentpy as ap
+import matplotlib.pyplot as plt
 import pandas as pd
-from matplotlib import pyplot as plt
-
-from source_agentpy.config import DATA_FOLDER
-from source_agentpy.model import CovidModel
 
 
-def run():
-    parameters = pd.read_excel(os.path.join(DATA_FOLDER, 'input', 'SimulatorScenarios.xlsx'))
-    exp = ap.Experiment(CovidModel, parameters.to_dict('records'))
-    results = exp.run()
-    reporters: pd.DataFrame = results['reporters']
+def plot_result(reporters: pd.DataFrame, parameters):
     for param in parameters.to_dict(orient='records'):
         data = reporters.iloc[param['id'], :]['data']
         plt.figure()
@@ -24,4 +16,11 @@ def run():
         plt.xlabel("Step")
         plt.ylabel("Count")
         plt.legend()
-    plt.show()
+        plt.savefig(
+            os.path.join(
+                os.path.join(os.path.dirname(os.path.dirname(__file__)), "data/output"),
+                f"AgentPy_PopulationInfection_S{param['id']}" + ".png"
+            ),
+            dpi=200,
+            format="PNG",
+        )

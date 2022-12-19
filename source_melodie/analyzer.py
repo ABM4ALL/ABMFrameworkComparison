@@ -1,7 +1,6 @@
 import os
 
 import matplotlib.pyplot as plt
-import numpy as np
 
 from Melodie import Config
 from Melodie import db
@@ -24,25 +23,19 @@ class CovidAnalyzer:
         df = self.db.read_dataframe("environment_result")
         df = df.loc[(df["id_scenario"] == id_scenario) & (df["id_run"] == id_run)]
         values_dict = {
-            "Not-infected": df["s0"],
-            "Infected": df["s1"],
-            "Recovered": df["s2"],
-            "Dead": df["s3"],
+            "not-infected": df["s0"],
+            "infected": df["s1"],
+            "recovered": df["s2"],
+            "dead": df["s3"],
         }
-        figure = plt.figure(figsize=(12, 6))
-        ax = figure.add_axes((0.1, 0.1, 0.8, 0.8))
+        figure = plt.figure(figsize=(6.4, 4.8))
+        ax = figure.add_axes((0.12, 0.12, 0.75, 0.75))
         ax.set_ylim(0, 1000)
-        ax.set_xlabel("Period", fontsize=15)
-        ax.set_ylabel("Count", fontsize=15)
+        ax.set_title(f"Scenario {id_scenario}")
+        ax.set_xlabel("Period")
+        ax.set_ylabel("Count")
         x = [i for i in range(0, len(list(values_dict.values())[0]))]
-        bottom = np.zeros(len(x))
         for key, values in values_dict.items():
-            ax.bar(
-                x,
-                values,
-                bottom=bottom,
-                label=key,
-            )
-            bottom += values
-        ax.legend(fontsize=12)
-        self.save_fig(figure, f"PopulationInfection_S{id_scenario}R{id_run}")
+            ax.plot(x, values, label=key)
+        ax.legend()
+        self.save_fig(figure, f"Melodie_PopulationInfection_S{id_scenario}R{id_run}")
