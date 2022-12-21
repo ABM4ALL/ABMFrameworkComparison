@@ -28,7 +28,8 @@ class CovidModel(ap.Model):
 
     def step(self):
         """ Call a method for every agent. """
-        self.agents.infection(self.infection_prob)
+        infection_prob = (self.s1 / self.num_agents) * self.infection_prob
+        self.agents.infection(infection_prob)
         self.agents.health_state_transition()
         self.calc_population_infection_state()
         self.record(['s0', 's1', 's2', 's3'])
