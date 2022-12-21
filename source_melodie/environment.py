@@ -24,8 +24,14 @@ class CovidEnvironment(Environment):
         for agent in agents:
             agent.health_state_transition()
 
+    def reset_counter(self):
+        self.s0 = 0
+        self.s1 = 0
+        self.s2 = 0
+        self.s3 = 0
+
     def calc_population_infection_state(self, agents: "AgentList[CovidAgent]"):
-        self.setup()
+        self.reset_counter()
         for agent in agents:
             if agent.health_state == 0:
                 self.s0 += 1
