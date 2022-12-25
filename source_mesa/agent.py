@@ -33,8 +33,7 @@ class CovidAgent(mesa.Agent):
                 self.health_state = 3
 
     def step(self) -> None:
-        infection_prob = (self.model.s1 / self.model.num_agents) * self.model.infection_prob
-        self.infection(infection_prob)
+        self.infection((self.model.s1 / self.model.num_agents) * self.model.infection_prob)
 
     def advance(self) -> None:
         self.health_state_transition()

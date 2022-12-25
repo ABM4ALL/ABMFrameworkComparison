@@ -28,8 +28,7 @@ class CovidModel(ap.Model):
 
     def step(self):
         """ Call a method for every agent. """
-        infection_prob = (self.s1 / self.num_agents) * self.infection_prob
-        self.agents.infection(infection_prob)
+        self.agents.infection((self.s1 / self.num_agents) * self.infection_prob)
         self.agents.health_state_transition()
         self.calc_population_infection_state()
         self.record(['s0', 's1', 's2', 's3'])
@@ -41,10 +40,8 @@ class CovidModel(ap.Model):
             self.stop()
 
     def end(self):
-        """ Repord an evaluation measure. """
-        # self.report('my_measure', self.log)
+        """ Record an evaluation measure. """
         self.report("data", self.log)
-        # print(self.log)
 
     def create_health_state(self):
         state = 0
@@ -52,7 +49,7 @@ class CovidModel(ap.Model):
             state = 1
         return state
 
-    def create_age_group(self: "CovidScenario"):
+    def create_age_group(self):
         age_group = 0
         if np.random.uniform(0, 1) > self.young_percentage:
             age_group = 1
@@ -78,12 +75,6 @@ class CovidModel(ap.Model):
         self.s1 = 0
         self.s2 = 0
         self.s3 = 0
-
-    def agents_infection(self, agents: "AgentList[CovidAgent]"):
-        infection_prob = (self.s1 / self.num_agents) * self.scenario.infection_prob
-        for agent in agents:
-            if agent.health_state == 0:
-                agent.infection(infection_prob)
 
     def calc_population_infection_state(self):
         self.reset_counters()

@@ -48,7 +48,7 @@ class CovidModel(mesa.Model):
             state = 1
         return state
 
-    def create_age_group(self: "CovidScenario"):
+    def create_age_group(self):
         age_group = 0
         if np.random.uniform(0, 1) > self.young_percentage:
             age_group = 1
