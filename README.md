@@ -1,7 +1,7 @@
 # README
 
 To compare the three Python packages - Mesa, AgentPy, and Melodie - 
-we develop a same agent-based covid contagion model with all of them. 
+we develop the same agent-based covid contagion model with all of them. 
 
 In the model, we make following assumptions regarding the infection in the population:
 
