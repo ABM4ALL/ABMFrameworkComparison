@@ -6,21 +6,12 @@ from source_mesa.agent import CovidAgent
 
 
 class CovidModel(mesa.Model):
-    """A model with some number of agents."""
 
-    def __init__(
-            self,
-            infection_prob: float,
-            agent_num: int,
-            initial_infected_percentage,
-            young_percentage
-    ):
-        self.num_agents = agent_num
-        self.initial_infected_percentage = initial_infected_percentage
-        self.young_percentage = young_percentage
-        self.infection_prob = infection_prob
-
-        # Counter for different health states
+    def __init__(self, **kwargs):
+        self.agent_num = kwargs["agent_num"]
+        self.initial_infected_percentage = kwargs["initial_infected_percentage"]
+        self.young_percentage = kwargs["young_percentage"]
+        self.infection_prob = kwargs["infection_prob"]
         self.s0 = 0
         self.s1 = 0
         self.s2 = 0
@@ -28,9 +19,8 @@ class CovidModel(mesa.Model):
         self.schedule = mesa.time.SimultaneousActivation(self)
 
         # Create agents
-        for i in range(self.num_agents):
+        for i in range(self.agent_num):
             a = CovidAgent(i, self)
-            # Initialize health state and age group
             a.health_state = self.create_health_state()
             a.age_group = self.create_age_group()
             self.schedule.add(a)
@@ -54,7 +44,8 @@ class CovidModel(mesa.Model):
             age_group = 1
         return age_group
 
-    def init_transition_probs(self):
+    @staticmethod
+    def init_transition_probs():
         df = pd.read_excel("./data/input/Parameter_AgeGroup_TransitionProb.xlsx")
         return {
             0: {

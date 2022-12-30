@@ -8,7 +8,6 @@ if TYPE_CHECKING:
 
 
 class CovidAgent(mesa.Agent):
-    """An agent with fixed initial wealth."""
     model: 'CovidModel'
 
     def __init__(self, unique_id, model):
@@ -33,7 +32,7 @@ class CovidAgent(mesa.Agent):
                 self.health_state = 3
 
     def step(self) -> None:
-        self.infection((self.model.s1 / self.model.num_agents) * self.model.infection_prob)
+        self.infection((self.model.s1 / self.model.agent_num) * self.model.infection_prob)
 
     def advance(self) -> None:
         self.health_state_transition()
