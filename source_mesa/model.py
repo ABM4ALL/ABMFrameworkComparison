@@ -10,11 +10,16 @@ class CovidModel(mesa.Model):
 
     def __init__(
             self,
+            id,
             infection_prob: float,
             agent_num: int,
             initial_infected_percentage,
-            young_percentage
+            young_percentage,
+            **kwargs
     ):
+        super().__init__()
+
+        self.id_scenario = id
         self.num_agents = agent_num
         self.initial_infected_percentage = initial_infected_percentage
         self.young_percentage = young_percentage

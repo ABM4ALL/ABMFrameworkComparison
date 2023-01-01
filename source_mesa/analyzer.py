@@ -3,8 +3,7 @@ import os
 import matplotlib.pyplot as plt
 
 
-def plot_result(model, scenario_id):
-    df = model.datacollector.get_model_vars_dataframe()
+def plot_result(df, scenario_id):
     plt.figure()
     plt.title(f"Scenario {scenario_id}")
     plt.plot(df.s0, label='not_infected')
