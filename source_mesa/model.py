@@ -8,22 +8,14 @@ from source_mesa.agent import CovidAgent
 class CovidModel(mesa.Model):
     """A model with some number of agents."""
 
-    def __init__(
-            self,
-            id,
-            infection_prob: float,
-            agent_num: int,
-            initial_infected_percentage,
-            young_percentage,
-            **kwargs
-    ):
+    def __init__(self, **kwargs):
         super().__init__()
 
-        self.id_scenario = id
-        self.num_agents = agent_num
-        self.initial_infected_percentage = initial_infected_percentage
-        self.young_percentage = young_percentage
-        self.infection_prob = infection_prob
+        self.id_scenario = kwargs['id']
+        self.agent_num = kwargs['agent_num']
+        self.initial_infected_percentage = kwargs['initial_infected_percentage']
+        self.young_percentage = kwargs["young_percentage"]
+        self.infection_prob = kwargs["infection_prob"]
 
         # Counter for different health states
         self.s0 = 0
@@ -33,7 +25,7 @@ class CovidModel(mesa.Model):
         self.schedule = mesa.time.SimultaneousActivation(self)
 
         # Create agents
-        for i in range(self.num_agents):
+        for i in range(self.agent_num):
             a = CovidAgent(i, self)
             # Initialize health state and age group
             a.health_state = self.create_health_state()

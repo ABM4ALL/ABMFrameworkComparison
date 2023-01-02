@@ -8,7 +8,6 @@ from source_agentpy.agent import CovidAgent
 class CovidModel(ap.Model):
 
     def setup(self):
-        """ Initiate a list of new agents. """
         self.agents = ap.AgentList(self, self.p['agent_num'], cls=CovidAgent)
         self.transition_probs = self.init_transition_probs()
         self.steps = self.p['period_num']
@@ -34,13 +33,10 @@ class CovidModel(ap.Model):
         self.record(['s0', 's1', 's2', 's3'])
 
     def update(self):
-        """ Record a dynamic variable. """
-
         if self.t >= self.steps:
             self.stop()
 
     def end(self):
-        """ Record an evaluation measure. """
         self.report("data", self.log)
 
     def create_health_state(self):
@@ -55,7 +51,8 @@ class CovidModel(ap.Model):
             age_group = 1
         return age_group
 
-    def init_transition_probs(self):
+    @staticmethod
+    def init_transition_probs():
         df = pd.read_excel("./data/input/Parameter_AgeGroup_TransitionProb.xlsx")
         return {
             0: {

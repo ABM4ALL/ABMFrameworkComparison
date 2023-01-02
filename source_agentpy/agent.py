@@ -6,7 +6,6 @@ import agentpy as ap
 class CovidAgent(ap.Agent):
 
     def setup(self):
-        # Initialize an attribute with a parameter
         self.health_state: int = 0
         self.age_group: int = 0
 

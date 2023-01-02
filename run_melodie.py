@@ -9,7 +9,7 @@ from source_melodie.model import CovidModel
 from source_melodie.scenario import CovidScenario
 
 config = Config(
-    project_name="CovidContagion",
+    project_name="Melodie_CovidContagion",
     project_root=os.path.dirname(__file__),
     input_folder="data/input",
     output_folder="data/output",
